@@ -19,7 +19,7 @@ jobs:
       - name: setup jdk 17
         uses: actions/setup-java@v3
         with:
-          java-version: 17
+          java-version: 21
           distribution: "microsoft"
       - run: |
           wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/147/downloads/paper-1.20.6-147.jar
