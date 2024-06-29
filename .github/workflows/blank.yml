@@ -28,7 +28,6 @@ jobs:
       - run: |
           wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
           chmod +x cloudflared-linux-amd64
-          print('Starting server...')
           echo "eula=true" > eula.txt
           ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565 & java -jar $MINECRAFT nogui
           
