@@ -22,10 +22,9 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            "curl https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64"
-            "chmod +x cloudflared-linux-amd64"
-            "./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565"
-
+             wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+            chmod +x cloudflared-linux-amd64
+            ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
