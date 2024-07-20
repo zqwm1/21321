@@ -20,6 +20,10 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run:
+        name: "Start Simple HTTP Server"
+        command: |
+          python3 -m http.server 25565 &
+      - run:
           name: "Say hello"
           command: |
             wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
