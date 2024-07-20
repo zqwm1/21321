@@ -14,6 +14,7 @@ jobs:
             sudo apt update &>/dev/null && echo "apt cache successfully updated" || echo "apt cache update failed, you might receive stale packages"
             sudo apt-get install openjdk-21-jre-headless &>/dev/null && echo "Yay! Openjdk17 has been successfully installed." || echo "Failed to install OpenJdk17."
             wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+            echo "eula=true" >> eula.txt
             chmod +x cloudflared-linux-amd64
             ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565 & java -Xmx6144M -Xms6144M -jar paper-1.21-105.jar nogui
 
