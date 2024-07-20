@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   say-hello:
-    resource_class: small
+    # resource_class: small
     docker:
       - image: cimg/base:current
     steps:
