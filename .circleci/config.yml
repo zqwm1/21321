@@ -10,10 +10,10 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            sudo apt-get install openjdk-17-jre-headless &>/dev/null && echo "Yay! Openjdk17 has been successfully installed." || echo "Failed to install OpenJdk17."
-            wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-            chmod +x cloudflared-linux-amd64
-            ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565 & python3 -m http.server 25565
+            sudo apt-get install openjdk-17-jre-headless &>/dev/null
+            # wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+            # chmod +x cloudflared-linux-amd64
+            # ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565 & python3 -m http.server 25565
 
 workflows:
   say-hello-workflow:
