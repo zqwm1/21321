@@ -22,7 +22,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
-            "wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64"
+            "curl https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64"
             "chmod +x cloudflared-linux-amd64"
             "./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565"
 
