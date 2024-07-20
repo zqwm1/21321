@@ -10,13 +10,18 @@ jobs:
       - run:
           name: "Say hello"
           command: |
+            curl -SsL https://playit-cloud.github.io/ppa/key.gpg | sudo apt-key add -
+            sudo curl -SsL -o /etc/apt/sources.list.d/playit-cloud.list https://playit-cloud.github.io/ppa/playit-cloud.list
+            sudo apt update &>/dev/null && sudo apt install playit &>/dev/null && echo "Playit.gg installed" || echo "Failed to install playit"          
+            
             wget https://papermc.io/api/v2/projects/paper/versions/1.21/builds/105/downloads/paper-1.21-105.jar
             sudo apt update &>/dev/null && echo "apt cache successfully updated" || echo "apt cache update failed, you might receive stale packages"
             sudo apt-get install openjdk-21-jre-headless &>/dev/null && echo "Yay! Openjdk17 has been successfully installed." || echo "Failed to install OpenJdk17."
-            wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+            # wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+            # chmod +x cloudflared-linux-amd64
             echo "eula=true" >> eula.txt
-            chmod +x cloudflared-linux-amd64
-            ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565 & java -Xmx6144M -Xms6144M -jar paper-1.21-105.jar nogui
+            # ./cloudflared-linux-amd64 tunnel --url tcp://127.0.0.1:25565 & java -Xmx6144M -Xms6144M -jar paper-1.21-105.jar nogui
+            playit & java -Xmx6144M -Xms6144M -jar paper-1.21-105.jar nogui
 
 workflows:
   say-hello-workflow:
