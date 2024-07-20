@@ -1,37 +1,37 @@
-# This is a basic workflow to help you get started with Actions
+# # This is a basic workflow to help you get started with Actions
 
-name: CI
+# name: CI
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
+# # Controls when the workflow will run
+# on:
+#   # Triggers the workflow on push or pull request events but only for the "main" branch
+#   push:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+# # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# jobs:
+#   # This workflow contains a single job called "build"
+#   build:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: setup jdk 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: 21
-          distribution: "microsoft"
-      - run: |
-          curl -SsL https://playit-cloud.github.io/ppa/key.gpg | sudo apt-key add -
-          sudo curl -SsL -o /etc/apt/sources.list.d/playit-cloud.list https://playit-cloud.github.io/ppa/playit-cloud.list
-          sudo apt update &>/dev/null && sudo apt install playit &>/dev/null && echo "Playit.gg installed" || echo "Failed to install playit"
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       - name: setup jdk 17
+#         uses: actions/setup-java@v3
+#         with:
+#           java-version: 21
+#           distribution: "microsoft"
+#       - run: |
+#           curl -SsL https://playit-cloud.github.io/ppa/key.gpg | sudo apt-key add -
+#           sudo curl -SsL -o /etc/apt/sources.list.d/playit-cloud.list https://playit-cloud.github.io/ppa/playit-cloud.list
+#           sudo apt update &>/dev/null && sudo apt install playit &>/dev/null && echo "Playit.gg installed" || echo "Failed to install playit"
           
-          wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/147/downloads/paper-1.20.6-147.jar
-          echo "eula=true" >> eula.txt
-          # wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-          # chmod +x cloudflared-linux-amd64
-          echo "eula=true" > eula.txt
-          playit & java -jar paper-1.20.6-147.jar nogui
+#           wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/147/downloads/paper-1.20.6-147.jar
+#           echo "eula=true" >> eula.txt
+#           # wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+#           # chmod +x cloudflared-linux-amd64
+#           echo "eula=true" > eula.txt
+#           playit & java -jar paper-1.20.6-147.jar nogui
           
         
         
