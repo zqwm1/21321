@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command:|
+          command: |
             "echo test 1"
 
 # Orchestrate jobs using workflows
