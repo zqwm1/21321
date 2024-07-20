@@ -22,7 +22,7 @@ jobs:
       - run:
           name: "Say hello"
           command:|
-            "echo test"
+            "echo test 1"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
