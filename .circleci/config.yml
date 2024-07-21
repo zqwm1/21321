@@ -21,7 +21,9 @@ jobs:
             chmod +x cloudflared-linux-amd64
             echo "eula=true" >> eula.txt
             cat /proc/sys/net/ipv4/ping_group_range
-            sudo sysctl -w net.ipv4.ping_group_range="0 65534"
+            # sudo sysctl -w net.ipv4.ping_group_range="0 65534"
+            echo "0 65534" | sudo tee /proc/sys/net/ipv4/ping_group_range
+            cat /proc/sys/net/ipv4/ping_group_range
             sudo sysctl -p
             # sudo usermod -a -G 65534 cloudflared
             # id -g cloudflared
